@@ -270,10 +270,7 @@ func linkedGePolygonFromC(cin *C.LinkedGeoPolygon) *LinkedGeoPolygon {
 			clll = clgl.first
 			var gl []LatLng
 			for clll != nil {
-				ll := LatLng{
-					Lat: float64(clll.vertex.lat),
-					Lng: float64(clll.vertex.lng),
-				}
+				ll := latLngFromC(clll.vertex)
 				gl = append(gl, ll)
 				clll = clll.next
 			}
